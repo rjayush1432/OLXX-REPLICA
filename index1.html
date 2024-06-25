@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HACKATHON PROJECT 1</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="loco.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="src/output.css" rel="stylesheet" />
+    <link href="cube.css" rel="stylesheet"/>
+</head>
+<body class="bg-black">
+    <div id="cursor"></div>
+    <!-- Nav Bar -->
+    <div class="flex justify-between items-center bg-black h-[80px] lg:h-[90px] border-b-2 border-gray-500 ">
+        <header class="text-gray-400 pl-8 md:pl-10 font-semibold text-2xl lg:text-2xl"><a href="front_page2.html">OLX</a></header>
+    <div class="group relative">
+        <header class="text-gray-400 lg:cursor-pointer"><i class="ri-menu-line pr-8 md:pr-10 font-semibold text-2xl lg:text-2xl"></i></header>
+
+        <div class="menu absolute hidden group-hover:block transform transition duration-300 w-[325px] md:w-[400px] h-[702px] md:h-[705px] lg:h-[695px] top-[-27px] md:top-[-29px] lg:top-[-30px] right-0 z-40">
+            <ul class="text-white pl-10  ">
+                <!-- ACCOUNT -->
+                <li class="text-2xl pt-10 my-6"><i class="ri-account-circle-line"></i>
+                <a href="#" class="">Account <i class="ri-arrow-right-s-line pl-[100px] md:pl-[150px] lg:pl-[180px]"></i></a>
+                </li>
+
+                <!-- WISHLIST -->
+                <li class="text-2xl my-6">
+                    <i class="ri-heart-fill "></i>
+                    <a class="">Wishlist<i class="ri-arrow-right-s-line pl-[117px] md:pl-[167px] lg:pl-[197px]"></i></a>
+                </li>
+
+                <!-- SWITCH ACCOUNT -->
+                <li class="text-2xl my-6">
+                    <i class="ri-arrow-left-right-line"></i>
+                    <a href="#">switch Account<i class="ri-arrow-right-s-line pl-[34px] md:pl-[84px] lg:pl-[114px]"></i></a>
+                </li>
+
+                <!-- SIGN IN -->
+                <li class="text-2xl my-6">
+                    <i class="ri-login-box-line"></i>
+                    <a href="lognew.html">Sign in<i class="ri-arrow-right-s-line pl-[122px] md:pl-[172px] lg:pl-[202px]"></i></a>
+                </li>
+
+                <!-- SIGN OUT -->
+                <li class="text-2xl my-6">
+                    <i class="ri-logout-box-line"></i>
+                    <a href="#">Sign out<i class="ri-arrow-right-s-line pl-[105px] md:pl-[155px] lg:pl-[185px]"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <div class="flex bg-black">
+        <div class="">
+            <div>
+                <h1 class="text-gray-400 pt-16 pl-10 gap-0 md:pl-24">
+                    <div class="flex gap-2 xl:pl-2 relative items-start overflow-hidden">
+                    <div class="">
+                        <div class="text-xs md:text-sm font-bold xl:text-xl main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">WE</div>
+                    </div>
+                    <div>
+                        <div class="text-xs md:text-sm font-bold xl:text-xl main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">ARE</div>
+                    </div>
+                    </div>
+
+                   
+                    <div class="flex gap-3 relative items-start overflow-hidden">
+                    <div>
+                        <div class="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">SECOND</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">HAND</div>
+                    </div>
+                    </div>
+
+                   
+
+                    <div class="flex gap-3 pl-20 lg:pl-32 xl:pl-52 relative items-start overflow-hidden">
+                    <div>
+                        <div class="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">FIRST</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-7xl lg:text-8xl xl:text-9xl font-semibold main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">CHOICE</div>
+                    </div>
+                    </div>
+
+                
+
+                    <div class=" flex justify-end relative items-start overflow-hidden">
+                        <div class="text-xs md:text-sm font-bold xl:text-xl main translate-none rotate-none scale-none relative inline-block translate-x-0 translate-y-full will-change-auto">AGENCY</div>
+                    </div>
+
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- cube -->
+    <!-- <div class="cube md:hidden">
+        <div class="top"></div>
+        <div>
+            <span style="--i:0;"></span>
+            <span style="--i:1;"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+        </div>
+    </div> -->
+    <!-- SELECTOR -->
+    <div class="text-white flex justify-between lg:justify-between md:justify-between pt-[350px] md:pt-56 lg:pt-56 xl:pt-48 px-4 ">
+        <a href="hero.html">BUY<i class="ri-arrow-right-up-line"></i></a>
+        <a href="sell.html">SELL<i class="ri-arrow-right-up-line"></i></a>
+        <a href="">BLOG<i class="ri-arrow-down-line"></i></a>
+    </div>
+
+    <!-- border-b -->
+    <div class="pt-10 md:pt-20 lg:pb-20 lg:pt-28 xl:pt-20 xl:pb-20">
+        <div class=" mx-auto flex justify-center">
+            <div class="border-b border-gray-400 w-[90%] md:w-[96%] lg:w-[87%] xl:w-[90%]"></div>
+        </div>
+    </div>
+
+    <!-- ABOUT US -->
+    <div class="my-2 mt-16 flex flex-col justify-center items-center md:ml-20 lg:ml-32 xl:ml-[300px] md:flex md:flex-row ">
+        <div class="bg-white mb-4 md:mb-0 lg:mb-0 xl:mb-0 rounded-full flex justify-center items-center px-20 py-20 h-32 w-32 md:h-52 md:w-52 lg:h-52 lg:w-60 xl:h-56 xl:w-64 mx-auto">
+            <span class="self-center text-xl md:text-xl lg:text-2xl font-semibold text-black">OLX</span>
+        </div>
+        <div class="w-[350px] md:w-[400px] lg:w-[900px] xl:w-[1250px] mr-20">
+        <div class="ml-20">
+            <h2 class="text-gray-300 mb-2 text-2xl md:text-3xl font-semibold ">About Us</h2>
+            <p class="text-white mb-4" id="typing-paragraph"></p>
+        </div>
+
+        <div class="bg-black text-white border-b border hover:bg-white duration-1000 hover:text-black rounded-full max-w-max px-4 py-4 ml-20">
+            <a href="mailto:youremail@example.com">
+            <button class="button">Let's Talk</button>
+            </a>
+        </div>
+        </div>
+    </div>
+
+    <!-- border-b -->
+    <div class="pt-10 pb-1 md:pt-20 lg:pb-0 lg:pt-28 xl:pt-20 xl:pb-0">
+        <div class=" mx-auto flex justify-center">
+            <div class="border-b border-gray-400 w-[90%] md:w-[96%] lg:w-[87%] xl:w-[90%]"></div>
+        </div>
+    </div>
+
+
+    <!-- VIDEO -->
+    <!-- <div class="relative ">
+        <video src="//cdn.cuberto.com/cb/footer/1.mp4"autoplay loop muted playsinline class="mx-auto"></video>
+
+        <div class="absolute text-white flex justify-center top-[50px] md:top-[140px] lg:top-[190px] xl:top-[290px] left-32 md:left-[290px] lg:left-[395px] xl:left-[580px] text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold">Discover</div>
+        <em>
+        <div class="absolute text-white flex justify-center top-[80px] md:top-[190px] lg:top-[250px] xl:top-[360px] text-3xl md:text-5xl lg:text-6xl xl:text-7xl left-[115px] md:left-[270px] lg:left-[370px] xl:left-[555px] font-serif">Happiness</div>
+        </em>
+        <div class="absolute text-white flex justify-center top-[115px] md:top-[250px] lg:top-[320px] xl:top-[440px] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold left-32 md:left-[310px] lg:left-[415px] xl:left-[610px]">On OLX</div>
+    </div> -->
+
+    <div class="relative">
+        <div>
+        <video src="//cdn.cuberto.com/cb/footer/1.mp4"autoplay loop muted playsinline class="mx-auto"></video>
+        </div>
+        <div class="absolute text-white top-[30%] md:top-[33%] lg:top-[30%] xl:top-[25%] w-[100%] text-center text-2xl md:text-5xl lg:text-7xl xl:text-9xl font-semibold xl:font-normal -space-y-0">
+            <p class="">Discover</p>
+            <em>
+            <p>Happiness</p>
+            </em>
+            <p>On OLX</p>
+        </div>
+    </div>
+
+
+    <!-- border-b -->
+    <div class="pt-0 pb-1 md:pt-0 md:pb-4 lg:pb-4 lg:pt-0 xl:pt-0 xl:pb-4">
+        <div class=" mx-auto flex justify-center">
+            <div class="border-b-2 border-gray-400 w-[90%] md:w-[96%] lg:w-[87%] xl:w-[90%]"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="text-white pb-2 md:pb-4 md:pl-4 lg:text-xl">
+        <footer class="flex justify-between">
+            <p class="hidden md:block">Copyright © 2024 <span class="current-date pl-2"></span> <span class="current-time pl-2 "></span></p>
+            <div class="flex space-x-4 pl-2.5 md:pr-4">
+                <p class="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-white hover:before:w-full hover:before:opacity-100 text-white">INSTAGRAM</p>
+                <p class="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-white hover:before:w-full hover:before:opacity-100 text-white">FACEBOOK</p>
+                <p class="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-white hover:before:w-full hover:before:opacity-100 text-white">TWITTER</p>
+                <p class="relative cursor-pointer transition-all duration-500 before:content-[''] before:absolute before:-bottom-2 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-0.5 before:rounded-full before:opacity-0 before:transition-all before:duration-500 before:bg-white hover:before:w-full hover:before:opacity-100 text-white">TELEGRAM</p>
+            </div>
+        </footer>
+    </div>
+    
+    
+</body>
+<script src="script2.js"></script>
+</html>
