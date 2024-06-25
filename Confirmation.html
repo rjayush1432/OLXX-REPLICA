@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="cube.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
+</head>
+<body class="bg-black">
+
+    <!-- NAv Bar -->
+    <div class="flex justify-between items-center bg-black h-[60px] lg:h-[90px] border-b-2 border-gray-500">
+        <header class="text-gray-400 pl-8 md:pl-10 font-semibold text-2xl lg:text-2xl"><a href="front_page2.html">OLX</a></header>
+    <div class="group relative">
+        <header class="text-gray-400 lg:cursor-pointer"><i class="ri-menu-line pr-8 md:pr-10 font-semibold text-2xl lg:text-2xl"></i></header>
+
+        <div class="menu absolute hidden group-hover:block transform transition duration-300 w-[325px] md:w-[400px] h-[702px] md:h-[705px] lg:h-[695px] top-[-27px] md:top-[-29px] lg:top-[-30px] right-0 z-40">
+            <ul class="text-white pl-10  ">
+                <!-- ACCOUNT -->
+                <li class="text-2xl pt-10 my-6"><i class="ri-account-circle-line"></i>
+                <a href="#" class="">Account <i class="ri-arrow-right-s-line pl-[100px] md:pl-[150px] lg:pl-[180px]"></i></a>
+                </li>
+
+                <!-- WISHLIST -->
+                <li class="text-2xl my-6">
+                    <i class="ri-heart-fill "></i>
+                    <a class="">Wshlist<i class="ri-arrow-right-s-line pl-[117px] md:pl-[167px] lg:pl-[197px]"></i></a>
+                </li>
+
+                <!-- SWITCH ACCOUNT -->
+                <li class="text-2xl my-6">
+                    <i class="ri-arrow-left-right-line"></i>
+                    <a href="#">switch Account<i class="ri-arrow-right-s-line pl-[34px] md:pl-[84px] lg:pl-[114px]"></i></a>
+                </li>
+
+                <!-- SIGN IN -->
+                <li class="text-2xl my-6">
+                    <i class="ri-login-box-line"></i>
+                    <a href="#">Sign in<i class="ri-arrow-right-s-line pl-[122px] md:pl-[172px] lg:pl-[202px]"></i></a>
+                </li>
+
+                <!-- SIGN OUT -->
+                <li class="text-2xl my-6">
+                    <i class="ri-logout-box-line"></i>
+                    <a href="#">Sign out<i class="ri-arrow-right-s-line pl-[105px] md:pl-[155px] lg:pl-[185px]"></i></a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div> 
+
+<!-- Congratulations -->
+    <div class="container flex flex-col items-center pt-10">
+        <div class="relative z-10">
+            <div class="absolute -inset-2 bg-green-600 rounded-lg blur-sm"></div>
+            <div class=" relative flex flex-col items-center bg-black w-auto h-auto  px-5"> 
+            <div class="relative top-[-30px]">
+                <div class="absolute -inset-1 bg-green-600 blur-sm rounded-full "></div>
+            <img src="https://png.pngtree.com/png-vector/20221215/ourmid/pngtree-green-check-mark-png-image_6525691.png" class="w-16 relative">
+            </div>
+            <h1 class="text-white mt-[-10px]">Thanks Jyoti</h1>
+            <p class="text-gray-500 pb-4">Your Order has successfully Registered..!!</p> 
+            <button class="text-black px-7 py-2 text-xl bg-white rounded-full mb-5 hover:bg-black duration-700 hover:border-2 hover:text-white" onclick="share()">Share</button>
+        </div>
+     </div>
+
+     
+     <!-- cube -->
+     <div class="cube">
+         <div class="top"></div>
+         <div>
+             <span style="--i:0;"></span>
+             <span style="--i:1;"></span>
+             <span style="--i:2;"></span>
+             <span style="--i:3;"></span>
+             </div>
+      </div>
+             
+             <!-- <div class="z-40 w-72">
+                <div class="border-2 flex">
+                    <p class="text-white">Your Second Hand rich Choice Order successfully Registered  <img src="j_images/rolls-royce bg.png"></p>
+                </div>
+             </div> -->
+
+<section class="text-gray-600 body-font z-10">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -mx-4 -my-8">
+      <div class="py-8 px-4 lg:w-1/3">
+        <div class="h-full flex items-start">
+          <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
+            <span class="text-white pb-2 mb-2 border-b-2 border-gray-200">Jul</span>
+            <span class="font-medium text-lg text-gray-400 title-font leading-none">18</span>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
+            <h1 class="title-font text-xl font-medium text-white mb-3">Vehicles</h1>
+            <p class="leading-relaxed mb-5 text-gray-400">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+            <a class="inline-flex items-center">
+              <img alt="blog" src="j_images/rolls-royce bg.png" class="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center">
+              <span class="flex-grow flex flex-col pl-3">
+                <span class="title-font font-medium text-gray-400">Rolls-Royace Phantom</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="py-8 px-4 lg:w-1/3">
+        <div class="h-full flex items-start">
+          <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
+            <span class="text-white pb-2 mb-2 border-b-2 border-gray-200">Jul</span>
+            <span class="font-medium text-lg text-gray-400 title-font leading-none">18</span>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
+            <h1 class="title-font text-xl font-medium text-white mb-3">Furnitures</h1>
+            <p class="leading-relaxed mb-5 text-gray-400">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+            <a class="inline-flex items-center">
+              <img alt="blog" src="https://dummyimage.com/102x102" class="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center">
+              <span class="flex-grow flex flex-col pl-3">
+                <span class="title-font font-medium text-gray-400">Holden Caulfield</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="py-8 px-4 lg:w-1/3">
+        <div class="h-full flex items-start">
+          <div class="w-12 flex-shrink-0 flex flex-col text-center leading-none">
+            <span class="text-white pb-2 mb-2 border-b-2 border-gray-200">Jul</span>
+            <span class="font-medium text-lg text-gray-400 title-font leading-none">18</span>
+          </div>
+          <div class="flex-grow pl-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
+            <h1 class="title-font text-xl font-medium text-white mb-3">Electronics</h1>
+            <p class="leading-relaxed mb-5 text-gray-400">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+            <a class="inline-flex items-center">
+              <img alt="blog" src="https://dummyimage.com/101x101" class="w-8 h-8 rounded-full flex-shrink-0 object-cover object-center">
+              <span class="flex-grow flex flex-col pl-3">
+                <span class="title-font font-medium text-gray-400">Henry Letham</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    </div>
+
+    <script>
+      function share() {
+            alert("Share your success with friends and let them jealous!");
+        }
+
+    </script>
+</body>
+</html>
