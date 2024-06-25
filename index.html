@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="scripts/signup.js"></script>
+</head>
+<body class="bg-[#1A1A1A] flex justify-center items-center h-screen">
+
+    <!-- main div container -->
+    <div class="bg-[#00000070] max-w-3xl min-w-80 h-auto border-4 border-[#1E1E1E] rounded-2xl space-y-6 px-4 py-2 md:flex md:space-y-0 md:space-x-12 pb-4 md:pb-0" >
+        
+        <!-- first div -->
+        <div class="h-auto space-y-8 px-2 my-4 md:w-1/2 md:space-y-12">
+            <div class="flex space-x-3 justify-center md:justify-start md:mx-4">
+            <h1 class="text-2xl text-white text-center md:text-4xl md:font-bold md:text-left md:mr-2">Sign Up</h1>
+            <div class="md:bg-white md:flex md:justify-center md:items-center md:rounded-full md:p-1 md:-translate-y-1">
+            <i class="fa-regular fa-user text-2xl bg-white rounded-full px-2 py-1 md:text-4xl"></i>
+        </div>
+        </div>
+
+        <!-- second part of first div -->
+        <div class="md:w-1/2">
+            <form action="" class="space-y-4 md:space-y-6">
+                <div class="relative">
+                    <div class="absolute px-1 bg-[#d3d0d0] rounded-full md:p-2 md:flex md:justify-center md:items-center md:top-1 md:left-1" >
+                        <i class="fa-regular fa-user" class="text-lg"></i>
+                    </div>
+                    <input type="text" placeholder="Enter Name" maxlength="25" class="rounded-full px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] md:py-2 md:px-16 focus:text-white"id="fname">
+
+                </div>
+
+                <div class="relative">
+                    <div class="absolute bg-[#d3d0d0] rounded-full px-1 md:p-2 md:flex md:justify-center md:items-center md:top-1 md:left-1">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <input type="email" placeholder="Enter Email" class="rounded-full px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] md:py-2 md:px-16 focus:text-white" id="email">
+
+                </div>
+
+                <div class="relative">
+                    <div class="absolute px-1 bg-[#d3d0d0] rounded-full md:p-2 md:flex md:justify-center md:items-center md:top-1 md:left-1">
+                        <i class="fa-solid fa-unlock text-md"></i>
+                    </div>
+                    <input type="password" placeholder="Enter Password" class="rounded-full px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] md:py-2 md:px-16 focus:text-white" id="password">
+
+                    <div class="pass-icons" onclick="pass()">
+                        <i class="fa-solid fa-eye-slash absolute text-black right-5 top-1
+                     font-bold cursor-pointer md:text-2xl md:translate-x-40" id="close" ></i>
+                        <i class="fa-regular fa-eye absolute right-5 top-1
+                        text-black font-bold cursor-pointer hidden md:text-2xl md:translate-x-40" id="open"></i>
+                    </div>
+
+                </div>
+
+                <div class="relative">
+                    <div class="absolute px-1 bg-[#d3d0d0] rounded-full md:p-2 md:flex md:justify-center md:items-center md:top-1 md:left-1">
+                        <i class="fa-solid fa-lock text-md"></i>
+                    </div>
+                    <input type="password" placeholder="Confirm Password" class="rounded-full px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] md:py-2 md:px-16 focus:text-white" id="password1">
+
+                    <div class="pass-icons" onclick="pass1()">
+                        <i class="fa-solid fa-eye-slash absolute text-black right-5 top-1
+                     font-bold cursor-pointer md:text-2xl md:translate-x-40" id="close1" ></i>
+                        <i class="fa-regular fa-eye absolute right-5 top-1
+                        text-black font-bold cursor-pointer hidden md:text-2xl md:translate-x-40" id="open1"></i>
+                    </div>
+
+                    <div id="pass_error" class="p-1 pl-6 hidden text-red-500 font-semibold text-sm md:w-56" >
+                        <p>Password does not match</p>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- second div -->
+    <div class="space-y-4 pt-4 md:pt-8 ">
+        <div class="space-y-4 ">
+        <form action="" class="flex justify-center" onsubmit="validate(event)">
+            <button class="px-12 py-1 rounded-full bg-gray-400 text-black font-bold text-lg md:px-24 md:py-2 md:font-bold md:text-xl">Sign Up</button>
+        </form>
+        <p class="text-[#FFFFFFB3] mx-8 text-sm md:text-lg">Already have an account? <a class="text-blue-700 text-sm md:text-lg " href="lognew.html">LogIn</a></p>
+    </div>
+
+    <div class="border-b-2 border-white flex justify-center mx-4">
+        <p class="text-white my-2 md:text-2xl">OR</p>
+    </div>
+
+    <div class="relative mt-5 mb-3 mx-4 flex justify-center">
+        <div class="absolute left-8 top-[2px] md:text-xl md:top-2 md:left-3">
+            <i class="fa-brands fa-google text-md"></i>
+        </div>
+        <button class="bg-[#FFFFFF30] rounded-full text-white text-sm py-1 px-8 md:px-16 md:py-2 md:font-medium md:text-sm md:mb-1 md:mt-1">Sign Up with Google</button>
+    </div>
+
+    
+    <div class="relative flex justify-center">
+        <div class="absolute left-10 top-[2px] md:text-xl md:top-1 md:left-6">
+            <i class="fa-brands fa-facebook "></i>
+        </div>
+        <button class="bg-[#FFFFFF30]  rounded-full text-white text-sm py-1 px-8 md:px-16 md:py-2 md:font-medium md:text-sm">Sign Up with Facebook</button>
+    </div>
+
+    </div>
+    </div>
+
+
+    
+</body>
+</html>

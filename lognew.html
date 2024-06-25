@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- js -->
+    <script src="scripts/log.js"></script>
+    <style>
+        ::selection {
+             color: black;
+            background: whitesmoke;
+    }
+    </style>
+</head>
+<body class="bg-[#1A1A1A] h-screen flex justify-center items-center">
+
+    <!-- main div container -->
+
+        <div class="max-w-3xl bg-[#00000070] h-auto border-4 border-[#1E1E1E] rounded-2xl p-4 space-y-8 md:flex md:space-y-0 md:w-[768px]">
+            
+            <!-- first div -->
+            <div class="hidden md:block md:w-1/2">
+                <img src="images/login.avif" alt="" class="h-full w-full object-cover rounded-md">
+            </div>
+
+            <!-- second div -->
+            <div class="text-white space-y-8 md:w-1/2 " >
+                <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-center m-2 md:text-4xl">Login</h2>
+                <p class="text-sm text-[#FFFFFFB3] text-center md:text-lg">Access to genuine buyers and sellers</p>
+            </div>
+
+                <!--form  -->
+                <form action="" class=" space-y-4 w-fit mx-auto" name="form" onsubmit="isnull(event)">
+                    <div class="relative mx-4">
+
+                        <div class="bg-[#d3d0d0] w-fit p-1 rounded-full flex justify-center items-center text-sm absolute left-1 top-1 md:p-2">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <input type="email" placeholder="Email Address" class="rounded-full text-sm px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] py-1 md:py-2 md:px-16" id="email-id" oninput = "email_verify()">
+
+                         <!-- email error -->
+                    <div id="email_error" class="pl-4 text-red-500 hidden font-semibold text-sm" >
+                        <p>Please Enter Email</p>
+                    </div>
+                    </div>
+
+                    <div class="relative mx-4">
+
+                        <div class="bg-[#d3d0d0] w-fit p-1 rounded-full flex justify-center items-center text-sm absolute left-1 top-1 md:p-2">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" placeholder="Enter Password" class="rounded-full text-sm px-8 bg-[#FFFFFF30] focus:bg-[#171717c4] focus:outline-none focus:ring-1 focus:ring-[#2FB8FF] py-1 md:py-2 md:px-16" id="password" name="pass-key" oninput="pass_verify()">
+
+                        
+                        <div class="absolute right-20 top-2 cursor-pointer text-white" onclick="pass()" id ="eye">
+                            <div class="relative -right-[70px] -top-[6px] md:translate-y-1">
+                                <i class="fa-solid fa-eye-slash" id="close" ></i>
+                                <i class="fa-regular fa-eye absolute top-1 right-1 hidden" id="open"></i>
+                            </div>
+                        </div>
+                        <!-- pass error -->
+                    <div id="pass_error" class="pl-4 text-red-500 hidden font-semibold text-sm" >
+                        <p>Please Enter Password</p>
+                    </div>
+                    </div>
+
+                    <div class="flex justify-center border-b-2 mx-4 pb-8 border-slate-300">
+                    <button class="px-16 bg-gray-500 text-black rounded-2xl py-2 font-bold mt-4 mb-2 text-xl md:rounded-full md:px-20 md:text-2xl">Log in</button>
+                </div>
+                </form>
+
+                <div class="text-sm space-y-2 font-light mx-auto w-fit md:text-lg md:font-medium">
+                    <p>Don't have an account? <a class="text-blue-600 cursor-pointer" href="signuppage.html">Sign up</a></p>
+                    <p>Contact : 985665323</p>
+                    <p>Email : <a class="text-blue-600 cursor-pointer">olx@gmai.com</a></p>
+                </div>
+            </div>
+
+        </div>
+
+</body>
+</html>

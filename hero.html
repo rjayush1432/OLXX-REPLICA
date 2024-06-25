@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Buy</title>
+
+    <!-- js -->
+    <script src="scripts/hero.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .slick-slide{
+            margin: 0 50px;
+        }
+        .slick-dots li button {
+    background-color: #1F2937;
+    border-radius: 80%; /* Change this to your desired color */
+}
+
+/* Assuming your slick slider uses the default classes slick-prev and slick-next for the arrows */
+.slick-prev,
+.slick-next {
+    visibility: visible; /* Ensure arrows are visible */
+    opacity: 1;
+    font-size:12px; /* Ensure arrows are fully opaque */
+    /* Add any additional styling here, such as color, size, etc. */
+}
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <!-- navbar -->
+    <nav class="bg-black h-12 flex md:h-16 border-b-2 border-gray-600" id="top">
+        <div class="flex justify-between items-center w-full text-2xl pl-2 pr-2 font-semibold text-gray-400 md:hidden">
+            <i class="fa-solid fa-bars" onclick="handlemenu()"></i>
+            <p>OLX</p>
+            <div class="relative">
+                <i class="fa-solid fa-circle-user" onclick="handleuser()"></i>
+                <div class="absolute -right-1 text-sm bg-gray-400 w-24 h-20 text-center text-black rounded-md space-y-1 font-medium pb-1 shadow-md shadow-gray-950 hidden z-40 pt-2"
+                    id="userlist">
+                    <a class="block ">Login</a>
+                    <a class="block">Sign Up</a>
+                    <a class="block">Wishlist</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hidden md:flex justify-between w-full px-4 items-center">
+            <p class="text-3xl font-semibold text-gray-400">OLX</p>
+            <div class="relative w-80">
+                <div class="absolute bg-gray-400 w-fit flex items-center justify-center rounded-l-md p-2 -left-1">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input type="text" placeholder="Search"
+                    class="rounded-r-md bg-gray-300 focus:outline-none font-mono w-full px-12 text-white h-8">
+            </div>
+            <div class="relative group z-50">
+                <p class="text-3xl font-semibold text-gray-400 cursor-pointer">Account</p>
+                <div
+                    class="text-black absolute bg-gray-400 w-44 px-3 -right-2 rounded-md py-2 font-medium text-sm shadow-lg shadow-black hidden group-hover:block">
+
+                    <div>
+                        <i class="ri-account-circle-line pr-2 text-xl"></i>
+                        <a>Account</a>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+
+                    <div>
+                        <i class="ri-heart-fill pr-2 text-xl"></i>
+                        <a>Wishlist</a>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+
+                    <div>
+                        <i class="ri-arrow-left-right-line pr-2 text-xl"></i>
+                        <a>Switch Account</a>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+
+                    <div>
+                        <i class="ri-login-box-line pr-2 text-xl"></i>
+                        <a>Sign in</a>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+
+                    <div>
+                        <i class="ri-logout-box-line pr-2 text-xl"></i>
+                        <a>Sign out</a>
+                        <i class="ri-arrow-right-s-line"></i>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="nav-dialog fixed bg-black inset-0 md:hidden hidden z-40" id="dialogbox">
+            <div
+                class="flex justify-between h-12 items-center w-full text-2xl pl-2 pr-2 font-semibold text-gray-400 border-b-2 border-gray-500 md:hidden">
+                <i class="fa-solid fa-xmark" onclick="handlemenu()"></i>
+                <p>OLX</p>
+                <!-- <i class="fa-solid fa-circle-user"></i>  -->
+            </div>
+
+            <div class="text-white text-xl font-thin px-2 ">
+                <a href="" class="block text-center py-4 hover:border-2 hover:border-gray-400">MOBILES</a>
+                <a href="" class="block text-center py-4 hover:border-2 hover:border-gray-400">FURNITURE & DECOR</a>
+                <a href="" class="block text-center py-4 hover:border-2 hover:border-gray-400">ELECTRONICS</a>
+                <a href="" class="block text-center py-4 hover:border-2 hover:border-gray-400">HOME APPLIANCES</a>
+                <a href="" class="block text-center py-4 hover:border-2 hover:border-gray-400">AUTOMOBILES</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- second nav -->
+    <panel class="hidden md:block text-gray-300 font-thin ">
+        <div class="bg-black h-10 border-b-2 border-gray-600 flex items-center pl-8 relative justify-between z-40">
+            <div class="flex w-full space-x-8">
+
+                <div
+                    class="group hover:bg-slate-400 hover:text-black hover: rounded-sm hover:font-semibold flex items-center h-10 px-1">
+                    <p>MOBILES <i class="ri-arrow-down-s-line"></i></p>
+
+                    <div class="absolute text-gray-400 bg-gray-700 w-32 group-hover:block rounded-md top-10 hidden">
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Top Brands</li>
+                            <li>MI</li>
+                            <li>Samsung</li>
+                            <li>Apple</li>
+                            <li>One Plus</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+                <div
+                    class="group hover:bg-slate-400 hover:text-black hover: rounded-sm hover:font-semibold flex items-center h-10 px-1">
+                    <p>ELECTRONICS <i class="ri-arrow-down-s-line"></i></p>
+
+                    <div
+                        class="absolute text-gray-400 bg-gray-700 rounded-md top-10 group-hover:grid grid-cols-3 px-2 pr-8 w-auto hidden">
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Television</li>
+                            <li>LED</li>
+                            <li>OMLED</li>
+                            <li>Curved TV</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Laptop</li>
+                            <li>Laptops</li>
+                            <li>Desktops</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Camera</li>
+                            <li>DSLR Cameras</li>
+                            <li>SLR Cameras</li>
+                            <li>Cameras Accessories</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    class="group hover:bg-slate-400 hover:text-black hover: rounded-sm hover:font-semibold flex items-center h-10 px-1">
+                    <p>HOME APPLIANCES <i class="ri-arrow-down-s-line"></i></p>
+
+                    <div
+                        class="absolute text-gray-400 bg-gray-700 space-x-2 rounded-md top-10 hidden group-hover:grid grid-cols-3 px-2 pr-8 w-auto">
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Refrigerators</li>
+                            <li>Single Door</li>
+                            <li>Double Door</li>
+                            <li>Multi Door</li>
+                            <li>Small Fridge</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Air Conditioners</li>
+                            <li>Split AC</li>
+                            <li>Window AC</li>
+                            <li>Coolers</li>
+                            <li>Ceiling Fans</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Kitchen Appliances</li>
+                            <li>Mixers</li>
+                            <li>Juicers</li>
+                            <li>Water Purifies</li>
+                            <li>Gas Stoves</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="group hover:bg-slate-400 hover:text-black hover: rounded-sm hover:font-semibold items-center h-10 px-1 hidden lg:flex">
+                    <p>FURNITURE & DECOR <i class="ri-arrow-down-s-line"></i></p>
+
+                    <div
+                        class="absolute text-gray-400 bg-gray-700 space-x-2 rounded-md top-10 group-hover:grid grid-cols-3 px-2 pr-8 w-auto hidden">
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">All Furniture</li>
+                            <li>Used Furniture</li>
+                            <li>Refurbished Furniture</li>
+                            <li>Brand new Furniture</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Living Room</li>
+                            <li>Sofa</li>
+                            <li>Diwans</li>
+                            <li>Sofa cum bed</li>
+                            <li>Tv units</li>
+                        </ul>
+
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">Bed Room</li>
+                            <li>Bedsets</li>
+                            <li>Mattresses</li>
+                            <li>Bedset Tables</li>
+                            <li>Dressing Tables</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <div
+                    class="hidden group hover:bg-slate-400 hover:text-black hover: rounded-sm hover:font-semibold lg:flex items-center h-10 px-1">
+                    <p>AUTOMOBILES <i class="ri-arrow-down-s-line"></i></p>
+
+                    <div class="absolute text-gray-400 bg-gray-700 w-32 group-hover:block rounded-md top-10 hidden">
+                        <ul class="pl-3 py-2 space-y-2">
+                            <li class="font-bold text-black">High Demand</li>
+                            <li>Scooter/Bikes</li>
+                            <li>Cars</li>
+                            <li>E-rickshaw</li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <div class="text-white mr-2">
+                <div class="flex py-2 space-x-1 text-gray-300">
+
+                    <i class="ri-map-pin-line"></i>
+                    <select name="area" class="text-gray-300 bg-black">
+                        <option value="Delhi">Delhi</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="UP">UP</option>
+                        <option value="MP">MP</option>
+                    </select>
+                    <!-- <i class="ri-arrow-down-s-line"></i> -->
+                </div>
+            </div>
+
+        </div>
+    </panel>
+
+
+    <!-- video image -->
+    <div class="h-48 md:h-96 bg-blue-400 relative">
+        <video src="images/background.mp4" preload="auto" autoplay loop muted class="absolute inset-0 w-full h-full object-cover"></video>
+
+        <div class="relative text-2xl text-gray-300 font-bold flex justify-center py-16 text-center md:text-4xl md:py-40 md:font-semibold">
+          Thousand of Products to choose From
+        </div>
+      </div>    
+
+      <!-- buying cards -->
+      <div class="bg-black px-2 pt-2 md:pt-4">
+        <div class="bg-[#191919] border-2 border-gray-700 rounded-lg px-2 py-3">
+            <div class="flex justify-between">
+                <div class="text-gray-400 text-sm flex space-x-1 md:text-2xl md:space-x-4 lg:px-4 lg:pt-6 items-center">
+                    <p class="mr-2">Categories:</p>
+                    <button class="border-2 px-2 rounded-full bg-gray-400 text-black border-black md:px-4 hover:bg-black hover:text-white hover:border-gray-400" onclick="show()" id="allbutton">All</button>
+                    <button class="border-2 px-2 rounded-full bg-gray-400 text-black border-black md:px-4 hover:bg-black hover:text-white hover:border-gray-400" onclick="show(2)" id="phonebutton">Mobiles</button>
+                    <button class="border-2 px-2 rounded-full bg-gray-400 text-black border-black md:px-4 hover:bg-black hover:text-white hover:border-gray-400" id="carbutton" onclick="show(1)">Cars</button>
+                </div>
+
+                <div class="filter sm:flex justify-end hidden text-white lg:pt-4">
+                    <i class="ri-filter-line text-xl text-gray-400 md:text-2xl lg:pt-2 md:pt-1"></i>
+                    <select name="low-high" id="" class="bg-[#191919] text-sm rounded-md md:text-xl">
+                      <option value="">Price: Low-to-High</option>
+                      <option value="">Price: High-to-Low</option>
+                      <option value="">Price: Average</option>
+                    </select>
+                  </div>
+            </div>
+
+            <!-- cards starting -->
+            <div class="parent mt-5 flex justify-center gap-10 flex-wrap md:justify-around xl:grid xl:grid-cols-3 xl:ml-12 lg:gap-20">
+                <!-- first card -->
+                    <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 car">
+                    <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                        <img src="images/hyndaineww.png" class="w-64 rounded-lg lg:w-72 lg:h-full md:inset-0  "> 
+                        <div class="text-gray-400 px-2 mt-2 md:hidden">
+                            <p class="font-bold text-xl">Hyundai Cian</p>
+                            <p class="text-[#12DAA8]">4.7 <i class="ri-star-s-fill"></i></p>
+                            <p>Feels like new</p>
+                            <p>1 week Ago</p>
+                            <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                        </div>
+
+                        <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                        lg:px-8 lg:pt-8">
+                            <p class="text-xl font-bold">Hyundai Cian <span class="text-[#12DAA8] px-2 text-sm">4.7<i class="ri-star-s-fill"></i></span></p>
+                            <div class="flex space-x-3 mx-2 max-w-max lg:space-x-4">
+                            <p>Feels like new</p>
+                            <p>1 week Ago</p>
+                        </div>
+                        <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                        <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- second card -->
+                <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 furniture">
+                    <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                        <img src="images/couch2.png" class="w-64 rounded-lg lg:w-72 lg:h-full md:absolute md:inset-0">
+                        <div class="text-gray-400 px-2 mt-2 md:hidden">
+                            <p class="font-bold text-xl">Wooden Sofa</p>
+                            <p class="text-[#12DAA8]">4.0 <i class="ri-star-s-fill"></i></p>
+                            <p>Almost Unused</p>
+                            <p>2 weeks Ago</p>
+                            <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 24,000</p>
+                        </div>
+
+                        <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                        lg:px-8 lg:pt-8">
+                            <p class="text-xl font-bold">Wooden Sofa <span class="text-[#12DAA8] px-2 text-sm">4.0<i class="ri-star-s-fill"></i></span></p>
+                            <div class="flex space-x-5 mx-2 w-full lg:space-x-4">
+                            <p>Almost Unused</p>
+                            <p>2 weeks Ago</p>
+                        </div>
+                        <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 24,000</p>
+                        <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                        </div>
+
+                        
+                </div>
+                </div>
+
+                <!-- third card -->
+                <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 phone">
+                <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                    <img src="images/iphonepink.png" class="w-64 rounded-lg lg:w-72 md:h-44 h-44 lg:h-full md:inset-0">
+                    <div class="text-gray-400 px-2 mt-2 md:hidden">
+                        <p class="font-bold text-xl">IPhone X</p>
+                        <p class="text-[#12DAA8]">4.2 <i class="ri-star-s-fill"></i></p>
+                        <p>Less Damaged</p>
+                        <p>4 weeks Ago</p>
+                        <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 26,000</p>
+                    </div>
+
+                    <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                        lg:px-8 lg:pt-8">
+                            <p class="text-xl font-bold">Iphone X <span class="text-[#12DAA8] px-2 text-sm">4.2<i class="ri-star-s-fill"></i></span></p>
+                            <div class="flex space-x-5 mx-2 w-full lg:space-x-4 lg:justify-between">
+                            <p>Less Damaged</p>
+                            <p>4 weeks Ago</p>
+                        </div>
+                        <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 26,000</p>
+                        <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                        </div>
+            </div>
+        </div>
+
+        <!-- 4th card -->
+        <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 phone">
+            <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                <img src="images/samsung.png" class="w-64 rounded-lg lg:w-72 lg:h-full md:h-44 h-44 md:inset-0"> 
+                <div class="text-gray-400 px-2 mt-2 md:hidden">
+                    <p class="font-bold text-xl">Hyundai Cian</p>
+                    <p class="text-[#12DAA8]">4.7 <i class="ri-star-s-fill"></i></p>
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                    <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                </div>
+
+                <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                lg:px-8 lg:pt-8">
+                    <p class="text-xl font-bold">Hyundai Cian <span class="text-[#12DAA8] px-2 text-sm">4.7<i class="ri-star-s-fill"></i></span></p>
+                    <div class="flex space-x-3 mx-2 max-w-max lg:space-x-4">
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                </div>
+                <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5th card -->
+        <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 car">
+            <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                <img src="images/tatap.png" class="w-64 rounded-lg lg:w-72 lg:h-full md:h-44 h-44 md:inset-0"> 
+                <div class="text-gray-400 px-2 mt-2 md:hidden">
+                    <p class="font-bold text-xl">Hyundai Cian</p>
+                    <p class="text-[#12DAA8]">4.7 <i class="ri-star-s-fill"></i></p>
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                    <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                </div>
+
+                <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                lg:px-8 lg:pt-8">
+                    <p class="text-xl font-bold">Hyundai Cian <span class="text-[#12DAA8] px-2 text-sm">4.7<i class="ri-star-s-fill"></i></span></p>
+                    <div class="flex space-x-3 mx-2 max-w-max lg:space-x-4">
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                </div>
+                <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6th card -->
+        <div class="group md:[perspective:1000px] md:w-64 lg:w-72 lg:h-56 car">
+            <div class="border-b-2 border-[#272727] md:border-none md:relative md:[transform-style:preserve-3d] md:group-hover:[transform:rotateY(180deg)] md:transition-all md:duration-500 md:h-full md:w-full">
+                <img src="images/nissan.png" class="w-64 h-44 rounded-lg lg:w-72 lg:h-full md:inset-0 md:h-44"> 
+                <div class="text-gray-400 px-2 mt-2 md:hidden">
+                    <p class="font-bold text-xl">Hyundai Cian</p>
+                    <p class="text-[#12DAA8]">4.7 <i class="ri-star-s-fill"></i></p>
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                    <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                </div>
+
+                <div class="hidden md:block md:absolute md:bg-black/80 md:w-full md:h-full [transform:rotateY(180deg)] [backface-visibility:hidden] text-center text-gray-400 px-4 pt-2 rounded-md space-y-2 md:top-0
+                lg:px-8 lg:pt-8">
+                    <p class="text-xl font-bold">Hyundai Cian <span class="text-[#12DAA8] px-2 text-sm">4.7<i class="ri-star-s-fill"></i></span></p>
+                    <div class="flex space-x-3 mx-2 max-w-max lg:space-x-4">
+                    <p>Feels like new</p>
+                    <p>1 week Ago</p>
+                </div>
+                <p class="font-extrabold pb-3"><i class="fa-solid fa-indian-rupee-sign"></i> 1,00,000</p>
+                <button class="px-2 bg-black border-2 border-gray-400 rounded-md">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    
+      </div>
+
+      <!-- Hot Deals -->
+      <div class="bg-black h-auto overflow-x-hidden py-4 ">
+        <p class="text-gray-400 ml-5 text-xl font-semibold xl:text-2xl xl:ml-8">HOT DEALS🔥</p>
+        <div class="grid slider p-4">
+            <div class="px-4 shadow-lg shadow-gray-400 rounded-md bg-gradient-to-r from-slate-900 to-fuchsia-900 pb-2 mb-2  lg:hover:translate-x-3 lg:hover:translate-y-1 group">
+                <p class="text-gray-300 text-sm text-center py-5 md:text-lg xl:text-2xl lg:group-hover:hidden">IPHONE XR</p>
+                <img src="images/iphonepink.png" class="mb-2 ">
+
+                <div class="hidden lg:group-hover:block text-gray-400 text-sm xl:text-lg">
+                    <p class="mb-4">2-3 Months used Iphone, pink in color and feels just like a brand new one. Price 48,000.</p>
+
+                    <button class="hidden lg:group-hover:block rounded-lg bg-fuchsia-900 shadow-md shadow-black font-bold px-12 lg:group-hover:py-1 mx-auto xl:px-20 xl:py-2 text-black">Buy</button>
+                </div>
+
+                <div class="flex justify-between text-sm lg:justify-center">
+                    <div class="lg:group-hover:hidden">
+                        <p class="text-gray-400 md:text-md xl:text-xl">Brand New</p>
+                    </div>
+                    <div class="text-sm lg:hidden">
+                        <button class="px-4 rounded-lg shadow-sm shadow-black  bg-fuchsia-950 text-gray-400 font-semibold md:text-md xl:text-xl xl:px-6 lg:group-hover:px-12 lg:group-hover:py-1">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-4 shadow-lg shadow-gray-400 rounded-md bg-gradient-to-r from-slate-900 to-fuchsia-900 pb-2 lg:hover:translate-x-3 lg:hover:translate-y-1 group mb-2">
+                <p class="text-gray-300 text-sm text-center py-5 md:text-lg xl:text-2xl lg:group-hover:hidden">DSLR Camera</p>
+                <img src="images/camnew1.png" class="mb-2">
+
+                <div class="hidden lg:group-hover:block text-gray-400 text-sm xl:text-lg">
+                    <p class="mb-4">2-3 Months used Iphone, pink in color and feels just like a brand new one. Price 48,000.</p>
+
+                    <button class="hidden lg:group-hover:block rounded-lg bg-fuchsia-900 shadow-md shadow-black font-bold px-12 lg:group-hover:py-1 mx-auto xl:px-20 xl:py-2 text-black">Buy</button>
+                </div>
+
+                <div class="flex justify-between text-sm lg:justify-center">
+                    <div class="lg:group-hover:hidden">
+                        <p class="text-gray-400 md:text-md xl:text-xl">Brand New</p>
+                    </div>
+                    <div class="text-sm lg:hidden">
+                        <button class="px-4 rounded-lg shadow-sm shadow-black  bg-fuchsia-950 text-gray-400 font-semibold md:text-md xl:text-xl xl:px-6">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="px-4 shadow-lg shadow-gray-400 rounded-md bg-gradient-to-r from-slate-900 to-fuchsia-900 pb-2 lg:hover:translate-x-3 lg:hover:translate-y-1 group mb-2">
+                <p class="text-gray-300 text-sm text-center py-5 md:text-lg xl:text-2xl lg:group-hover:hidden">Samsung LED TV</p>
+                <img src="images/tvnew.png" class="mb-2">
+
+                <div class="hidden lg:group-hover:block text-gray-400 text-sm xl:text-lg">
+                    <p class="mb-4">2-3 Months used Iphone, pink in color and feels just like a brand new one. Price 48,000.</p>
+
+                    <button class="hidden lg:group-hover:block rounded-lg bg-fuchsia-900 shadow-md shadow-black font-bold px-12 lg:group-hover:py-1 mx-auto xl:px-20 xl:py-2 text-black">Buy</button>
+                </div>
+
+                <div class="flex justify-between text-sm lg:justify-center">
+                    <div class="lg:group-hover:hidden">
+                        <p class="text-gray-400 md:text-md xl:text-xl">Brand New</p>
+                    </div>
+                    <div class="text-sm lg:hidden">
+                        <button class="px-4 shadow-sm shadow-black  bg-fuchsia-950 text-gray-400 rounded-lg font-semibold md:text-md xl:text-xl xl:px-6">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="px-4 shadow-lg shadow-gray-400 rounded-md bg-gradient-to-r from-slate-900 to-fuchsia-900 pb-2  lg:hover:translate-x-3 lg:hover:translate-y-1 group mb-2">
+                <p class="text-gray-300 text-sm text-center py-5 md:text-lg xl:text-2xl lg:group-hover:hidden">Bajaj Avenger</p>
+                <img src="images/bikenew.png" class="mb-2">
+
+                <div class="hidden lg:group-hover:block text-gray-400 text-sm xl:text-lg">
+                    <p class="mb-4">2-3 Months used Iphone, pink in color and feels just like a brand new one. Price 48,000.</p>
+
+                    <button class="hidden lg:group-hover:block rounded-lg bg-fuchsia-900 shadow-md shadow-black font-bold px-12 lg:group-hover:py-1 mx-auto xl:px-20 xl:py-2 text-black">Buy</button>
+                </div>
+
+                <div class="flex justify-between text-sm lg:justify-center">
+                    <div class="lg:group-hover:hidden">
+                        <p class="text-gray-400 md:text-md xl:text-xl">Brand New</p>
+                    </div>
+                    <div class="text-sm lg:hidden">
+                        <button class="px-4 shadow-sm shadow-black  bg-fuchsia-950 text-gray-400 rounded-lg font-semibold md:text-md xl:text-xl xl:px-6">Buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-4 shadow-lg shadow-gray-800 rounded-md bg-gradient-to-r from-slate-900 to-fuchsia-900 pb-2 lg:hover:translate-x-3 lg:hover:translate-y-1 group mb-2">
+                <p class="text-gray-300 text-sm text-center py-5 md:text-lg xl:text-2xl lg:group-hover:hidden">Bajaj Avenger</p>
+                <img src="images/bikenew.png" class="mb-2">
+
+                <div class="hidden lg:group-hover:block text-gray-400 text-sm xl:text-lg">
+                    <p class="mb-4">2-3 Months used Iphone, pink in color and feels just like a brand new one. Price 48,000.</p>
+
+                    <button class="hidden lg:group-hover:block rounded-lg bg-fuchsia-900 shadow-md shadow-black font-bold px-12 lg:group-hover:py-1 mx-auto xl:px-20 xl:py-2 text-black">Buy</button>
+                </div>
+
+                <div class="flex justify-between text-sm lg:justify-center">
+                    <div class="lg:group-hover:hidden">
+                        <p class="text-gray-400 md:text-md xl:text-xl">Brand New</p>
+                    </div>
+                    <div class="text-sm lg:hidden">
+                        <button class="px-4 shadow-sm shadow-black  bg-fuchsia-950 text-gray-400 rounded-lg font-semibold md:text-md xl:text-xl xl:px-6">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!-- back to top -->
+      <div class="bg-black lg:pt-8 xl:pt-12">
+      <div class="text-gray-400 bg-gray-800 flex justify-center items-center h-8 md:h-12 md:text-xl border-b-2 border-black ">
+        <p><a href="#top">Back to TOP <i class="ri-arrow-up-line"></a></i></p>
+      </div>
+    </div>
+    
+      <footer>
+        <div class="bg-black text-gray-400 grid grid-cols-1 text-center items-center md:grid-cols-3 md:items-start lg:grid-cols-4 lg:py-8 lg:px-16">
+            <div class="content1 m-4 ">
+                <p class="text-md text-gray-700 font-semibold lg:text-xl">POPULAR LOCATIONS</p>
+                <ul class="text-lg">
+                    <li>Kolkata</li>
+                    <li>Mumbai</li>
+                    <li>Chennai</li>
+                    <li>Pune</li>
+                </ul>
+            </div>
+
+            <div class="content2 m-4">
+                <p class="text-md text-gray-700 font-semibold lg:text-xl">ABOUT US</p>
+                <ul class="text-lg">
+                    <li>Contact Us</li>
+                    <li>Tech@OLX</li>
+                </ul>
+            </div>
+
+            <div class="content3 hidden lg:block m-4">
+                <p class="text-xl text-gray-700 font-semibold">OLX</p>
+                <ul class="text-lg">
+                    <li>Blog</li>
+                    <li>Help</li>
+                    <li>Sitemap</li>
+                </ul>
+            </div>
+
+            <div class="content4 m-4">
+                <p class="text-md text-gray-700 font-semibold lg:text-xl">FOLLOW US</p>
+                <ul class="flex justify-center space-x-2 lg:text-lg">
+                    <li><i class="ri-facebook-fill"></i></li>
+                    <li><i class="ri-instagram-fill"></i></li>
+                    <li><i class="ri-twitter-x-fill"></i></li>
+                    <li><i class="ri-video-chat-fill"></i></li>
+                </ul>
+            </div>
+        </div>
+      </footer>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js" integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="scripts/slider.js"></script>
+
+</body>
+
+</html>
